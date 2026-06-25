@@ -1,65 +1,44 @@
 # whitepace — Frontend Developer Technical Assessment
 
-A recreation of the supplied "whitepace" landing page design, built with Next.js
-(App Router), TypeScript, and Tailwind CSS.
+Next.js (App Router) + TypeScript + Tailwind CSS recreation of the supplied whitepace landing page.
 
 **Live demo:** https://frontend-assessment-whitepace.vercel.app/
 **Repository:** https://github.com/Hassan-Kirmani9/frontend-assessment-whitepace
 
----
+## Tech Stack
+Next.js 16, TypeScript, Tailwind CSS v4, next/font, next/image, react-icons for brand logos. No general UI library — components hand-built.
 
-## 1. Project Overview
-
-A marketing/landing page for a fictional project-management product called
-**whitepace**. It includes all 11 sections required by the assessment brief:
-
-1. Navbar (sticky, blurred, dropdowns, mobile menu)
-2. Hero
-3. Trusted Logos / Sponsors
-4. Feature Cards
-5. Integrations (data security + favorite apps)
-6. Statistics (animated counters)
-7. How It Works (4-step process)
-8. Testimonials (carousel)
-9. Resources / Articles
-10. CTA banner
-11. Footer
-
-Plus a Pricing section ("Choose Your Plan") and an FAQ accordion, both shown in the
-supplied design screenshots and included for completeness.
-
-## 2. Tech Stack
-
-- **Next.js 16** (App Router, `src/` directory)
-- **TypeScript**
-- **Tailwind CSS v4** (CSS-first theme via `@theme`)
-- **next/font** for self-hosted Google Fonts (Sora for display, Inter for body)
-- **next/image** for all images
-- **react-icons** for accurate brand marks (Apple, Microsoft, Slack, Google), plus
-  downloaded SVGs in `public/logos/` for integration icons (Gmail, Dropbox, Google
-  Drive, Google Calendar, Outlook)
-- No general UI component library — Button, Card, Accordion, etc. are hand-built
-
-## 3. Running Locally
-
+## Run Locally
 ```bash
 npm install
 npm run dev
 ```
-Opens at `http://localhost:3000`. Requires Node.js 18.18+.
+Opens at `http://localhost:3000`. Node 18.18+.
 
-## 4. Other Commands
+## Structure
+src/
+├── app/         # layout, page, loading skeleton, globals.css
+├── components/
+│   ├── layout/  # Navbar, Footer, ThemeToggle, ScrollProgress
+│   ├── sections/# Hero, Features, Pricing, Testimonials, etc.
+│   └── ui/      # Button, Card, Accordion, Highlight, Reveal
+├── data/        # All copy/content
+└── lib/         # cn() helper, useReveal hook
 
-| Command         | Description                        |
-|-----------------|-------------------------------------|
-| `npm run build` | Production build                    |
-| `npm run start` | Run the production build locally    |
-| `npm run lint`  | Run ESLint                          |
+## Animations
+Scroll fade-ins (IntersectionObserver), hero entrance keyframes, card hover-lift, animated counters, mobile scroll-snap carousels. `prefers-reduced-motion` respected throughout.
 
-## 5. Deployment
+## Accessibility
+Semantic landmarks, skip link, visible focus states, ARIA on all interactive elements, keyboard-operable nav/menu, accessible accordion, AA contrast in both themes.
 
-Live on Vercel, connected to the `main` branch — every push auto-deploys.
+## Performance
+`next/image` + `next/font` everywhere, CSS-driven animations, server components by default, `"use client"` only where needed.
 
-**Live URL:** https://frontend-assessment-whitepace.vercel.app/
+## Assumptions
+- Placeholder SVGs used for product mockups (none provided)
+- Testimonial avatars from a placeholder face service, not licensed photos
+- Brand colors sampled by eye from screenshots
+- Dark mode defaults to light regardless of system theme
 
-## 6. Component Structure
+## Bonus Features
+✅ Dark mode · ✅ Animated mobile nav · ✅ Sticky blurred navbar · ✅ Scroll progress bar · ✅ Active nav highlighting · ✅ Loading skeleton · ✅ Extra accessibility · ✅ This README
