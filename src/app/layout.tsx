@@ -52,13 +52,11 @@ export const viewport: Viewport = {
   ],
 };
 
-// Runs before paint to avoid a flash of the wrong theme.
 const themeInitScript = `
 (function () {
   try {
     var stored = localStorage.getItem('theme');
-    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    var isDark = stored === 'dark' || (!stored && prefersDark);
+    var isDark = stored === 'dark';
     document.documentElement.classList.toggle('dark', isDark);
   } catch (e) {}
 })();
@@ -75,7 +73,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className={`${sora.variable} ${inter.variable} antialiased bg-paper text-ink-900`}>
-        <a
+      <a  
           href="#main-content"
           className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-md focus:bg-brand-600 focus:px-4 focus:py-2 focus:text-white"
         >
