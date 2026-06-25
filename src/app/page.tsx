@@ -14,13 +14,14 @@ import FAQ from "@/components/sections/FAQ";
 import CTA from "@/components/sections/CTA";
 import DataSecurity from "@/components/sections/DataSecurity";
 
+export const dynamic = "force-dynamic";
 
 function wait(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
 export default async function HomePage() {
-  await wait(1500);
+  await wait(500);
   return (
     <>
       <Navbar />
