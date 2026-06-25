@@ -21,7 +21,7 @@ function wait(ms: number) {
 }
 
 export default async function HomePage() {
-  await wait(500);
+  await wait(1000);
   return (
     <>
       <Navbar />
