@@ -12,7 +12,7 @@ export default function Hero() {
 
       <Container className="grid grid-cols-1 items-center gap-12 py-16 sm:py-20 lg:grid-cols-2 lg:py-28">
         <div className="relative z-10 max-w-xl motion-safe:animate-[fadeUp_0.7s_ease_both]">
-          <h1 className="font-display text-4xlmd:text-left text-center font-extrabold leading-[1.1] text-brand-600 sm:text-5xl lg:text-[3.4rem]">
+          <h1 className="font-display text-4xl md:text-left text-center font-extrabold leading-[1.1] text-brand-600 sm:text-5xl lg:text-[3.4rem]">
             Get More Done with <Highlight className="text-brand-600 md:text-left text-center">{siteConfig.name}</Highlight>
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-brand-500 md:text-left text-center">{siteConfig.description}</p>
